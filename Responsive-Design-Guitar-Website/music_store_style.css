@@ -1,0 +1,208 @@
+:root {
+    /*
+        'Custom Properties' are the CSS equivalent of variables. You can define name/value pairs here,
+        then retrieve the values using the CSS function var(). See below for usages of these colors
+    */
+    --nav-col-bg: rebeccapurple;
+    --nav-col-fg: #FFFFFF;
+}
+
+.grid_container {
+    /* Give a default layout, and set up the grid container for grid */
+    display: grid;
+    width: 100%;
+
+    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-rows: 1fr 8fr 1fr;
+    grid-template-areas: "header header header" ". content ." "footer footer footer";
+
+}
+
+.navigation_bar {
+    /* Place the navigation bar in the grid */
+    grid-area: header;
+
+    /* Flexbox config to align vertically and withe the brand/nav on either end of the navbar */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 1em;
+    font-family: sans-serif;
+    background: var(--nav-col-bg);
+    color: var(--nav-col-fg);
+}
+
+/* Bump up the size of the 'brand' item in the navbar */
+.navigation_brand {
+    font-size: xx-large;
+}
+
+/* Hide the bullet icons from the list of links, and display them horizontally */
+.navigation_list {
+    display: flex;
+    list-style: none;
+    overflow: hidden;
+}
+
+/* Space out nav items */
+.navigation_list > li {
+    margin-right: 2em;
+}
+
+/* Hide usual anchor styling on nav items */
+.navigation_bar a {
+    color: var(--nav-col-fg);
+    text-decoration: none;
+}
+
+/* Set the size of the hamburger button in the bar */
+.navigation_hamburger {
+    height: 1.5em;
+    width: 1.5em;
+}
+
+.navigation_hamburger > img {
+    width: 100%;
+}
+
+/* On larger screens, we should not see the hamburger button*/
+.navigation_hamburger {
+    display: none;
+}
+
+/* Bump up the size of the 'brand' item in the navbar */
+.footer {
+    background: var(--nav-col-bg);
+    grid-area: footer;
+    font-size: small;
+    color: var(--nav-col-fg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+@media only screen and (max-width: 768px) {
+    .navigation_bar, .navigation_list {
+        flex-direction: column;
+    }
+
+    /* Hide the list of links initially */
+    .navigation_list {
+        display: none;
+    }
+
+    /* When applied, reveal the list of links */
+    .navigation_tray_reveal {
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* On small screens, reveal the hamburger button and place it at the end of the navbar */
+    .navigation_hamburger {
+        align-self: flex-end;
+        display: initial;
+        position: absolute;
+        cursor: pointer;
+    }
+}
+
+.content {
+    background: white;
+    grid-area: content;
+    display: flex;
+    flex-direction: column;
+}
+
+.content > h1{
+    font-size: xx-large;
+}
+#guitarImage {
+    justify-self: center;
+    align-self: center;
+    border-radius: 50%;
+    height: 300px;
+    width: 300px;
+}
+
+#introduction {
+    text-align: center;
+    padding: 20px;
+    background-color: lightcyan
+}
+
+#classical, #fingerstyle, #acoustic{
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: "title ." "img rc"  "oc oc";
+    padding: 20px;
+}
+
+
+#classical{
+    background-color: lightgray;
+}
+
+#fingerstyle{
+    background-color: lightsteelblue;
+}
+
+#acoustic{
+    background-color: lightskyblue;
+}
+
+.secGuitar {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    grid-area: img;
+    margin-right: 20px;
+}
+
+.rc {
+    grid-area: rc;
+}
+
+.otherContent{
+    grid-area: oc;
+    display: flex;
+    align-content: center;
+}
+
+.title {
+    grid-area: title;
+}
+
+
+@media only screen and (max-width: 1000px) {
+    .navigation_bar, .navigation_list {
+        flex-direction: column;
+    }
+
+    /* Hide the list of links initially */
+    .navigation_list {
+        display: none;
+    }
+
+    /* When applied, reveal the list of links */
+    .navigation_tray_reveal {
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* On small screens, reveal the hamburger button and place it at the end of the navbar */
+    .navigation_hamburger {
+        align-self: flex-end;
+        display: initial;
+        position: absolute;
+        cursor: pointer;
+    }
+
+    .grid_container {
+        grid-template-areas: "header header header" "content content content" "footer footer footer";
+    
+    }
+}

@@ -1,0 +1,72 @@
+body {
+    box-sizing: border-box;
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#container{
+    position: absolute;
+    width: 700px;
+    height: 541px;
+    border: solid 1px red;
+    margin: auto;
+}
+
+#landscape{
+    position: absolute;
+    z-index: 0;
+}
+
+#pohutukawa{
+    position: absolute;
+    width: 100%;
+    bottom: 0px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+
+.baubles{
+    position: absolute;
+    z-index: 3;
+    transition: transform 2s ease;
+}
+
+.baubles:hover{
+    transform: scale(1.5);
+}
+
+#blue{
+    top: 50%;
+    left: 50%;
+}
+
+#darkblue{
+    top: 60%;
+    left: 40%;
+}
+
+#green{
+    top: 60%;
+    left: 60%;
+}
+
+#orange{
+    top: 40%;
+    left: 40%;
+}
+
+#red{
+    top: 40%;
+    left: 60%;
+}
+
+#pink{
+    top: 70%;
+    left: 20%;
+    z-index: 1;
+}
